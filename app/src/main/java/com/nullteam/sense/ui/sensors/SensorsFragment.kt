@@ -162,7 +162,20 @@ class SensorsFragment : Fragment() {
 
             override fun onResponse(call: Call<NearbySensors>, response: Response<NearbySensors>) {
                 val sensors = response.body() as NearbySensors
-                val sensorsSorted = NearbySensors(devices = sensors.devices!!.sortedBy { it.distance })
+                if (sensors.devices == null)
+                {
+                    Log.e("MESSAGE", getString(R.string.api_error))
+                    Toast.makeText(
+                        context,
+                        getString(R.string.api_error),
+                        Toast.LENGTH_LONG
+                    ).show()
+                    requireActivity().finishAffinity()
+                    return
+                }
+
+                val sensorsSorted = NearbySensors(devices = sensors.devices.sortedBy { it.distance })
+
                 adapter = NearbySensorsAdapter(requireContext(), sensorsSorted, sensTypes)
                 adapter.notifyDataSetChanged()
                 adapter.setOnItemClickListener(NearbySensorsAdapter.ClickListener(

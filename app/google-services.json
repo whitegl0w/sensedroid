@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "220004357593",
+    "project_id": "sense-85467",
+    "storage_bucket": "sense-85467.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:220004357593:android:4e8b5ae54d1be2927a35c8",
+        "android_client_info": {
+          "package_name": "com.nullteam.sense"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "220004357593-ehdu9nhfe8k9ek2slag7qepn38dj4a0u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC99WZbx6hLvCvX-3dnX_l-eFSphfPWuds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "220004357593-ehdu9nhfe8k9ek2slag7qepn38dj4a0u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

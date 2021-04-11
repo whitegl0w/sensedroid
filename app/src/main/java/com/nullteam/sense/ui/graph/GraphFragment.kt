@@ -74,6 +74,16 @@ class GraphFragment : Fragment() {
                 response: Response<SensorsHistory>
             ) {
                 val history = response.body() as SensorsHistory
+                if (history.data == null) {
+                    Toast.makeText(
+                        requireContext(),
+                        getString(R.string.api_error),
+                        Toast.LENGTH_LONG
+                    ).show()
+                    requireActivity().finishAffinity()
+                    return
+                }
+
                 val data = history.data!!.map {
                     DataPoint(it.time!!.toDouble() * 1000, it.value!!)
                 }.toTypedArray()

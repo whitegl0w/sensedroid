@@ -8,4 +8,5 @@
     <string name="settings_search_radius">Радиус поиска датчиков (км.)</string>
     <string name="settings_sensors_type">Типы датчиков для поиска</string>
     <string name="no_sensor_for_graph">Датчик для отображения не выбран</string>
+    <string name="api_error">Ошибка: некорректный ответ с сервера API. Перезапустите приложение немного позже</string>
 </resources>

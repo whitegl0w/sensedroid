@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.nullteam.sense.`interface`.RetrofitServices
 import com.nullteam.sense.common.Common
@@ -36,6 +37,12 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onResume()
         if (!prefs.contains("uuid_app_key"))
             prefs.edit().putString("uuid_app_key", getMD5(Date().time.toString())).apply()
+
+        if (!prefs.contains("search_sensor_types"))
+            prefs.edit().putStringSet("search_sensor_types", setOf("1", "2")).apply()
+
+        if (!prefs.contains("search_radius"))
+            prefs.edit().putInt("search_radius", 10).apply()
 
         val timeFromLastTypeUpdate = Date().time - prefs.getLong("sens_type_date", 0)
 
@@ -82,13 +89,21 @@ class SplashScreenActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<Appinit>, response: Response<Appinit>) {
                 val appInit = response.body() as Appinit
-                Log.d("RESPONSE", "Send Request for App Init")
-                prefs.edit()
-                    .putString("sensor_type_dict", appInit.types!!.toString())
-                    .putLong("sens_type_date", Date().time)
-                    .apply()
-                startActivity(int)
-                finish()
+                if (appInit.timestamp == null)
+                    Toast.makeText(
+                        applicationContext,
+                        getString(R.string.api_error),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                else {
+                    Log.d("RESPONSE", "Send Request for App Init")
+                    prefs.edit()
+                        .putString("sensor_type_dict", appInit.types!!.toString())
+                        .putLong("sens_type_date", Date().time)
+                        .apply()
+                    startActivity(int)
+                }
+                finishAffinity()
             }
         })
     }
