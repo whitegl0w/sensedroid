@@ -20,7 +20,6 @@
                 android:layout_margin="10dp"
                 android:layout_span="2"
                 android:layout_weight="1"
-                android:text="TextView"
                 android:textColor="@color/purple_200" />
         </TableRow>
 
@@ -33,8 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:layout_weight="2"
-                android:text="TextView" />
+                android:layout_weight="2" />
 
             <TextView
                 android:id="@+id/sensor_data"
@@ -42,7 +40,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="0"
-                android:text="TextView"
                 android:textAlignment="viewEnd" />
         </TableRow>
 
