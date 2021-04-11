@@ -12,13 +12,11 @@ import android.widget.SeekBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.google.gson.JsonParser
 import com.nullteam.sense.R
 
 class SettingsFragment : Fragment() {
 
-    private lateinit var homeViewModel: SettingsViewModel
     private lateinit var sensTypes: Map<Int, String>
     private lateinit var prefs: SharedPreferences
     private lateinit var selectedTypes: HashSet<String>
@@ -29,8 +27,6 @@ class SettingsFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-                ViewModelProvider(this).get(SettingsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_settings, container, false)
         val layout: LinearLayout = root.findViewById(R.id.settings_layout)
         val seekRadius: SeekBar = root.findViewById(R.id.settings_radius)

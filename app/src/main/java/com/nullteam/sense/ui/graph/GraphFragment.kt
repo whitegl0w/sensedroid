@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.jjoe64.graphview.GraphView
 import com.jjoe64.graphview.GridLabelRenderer
 import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter
@@ -28,7 +27,6 @@ import java.util.*
 
 class GraphFragment : Fragment() {
 
-    private lateinit var notificationsViewModel: GraphViewModel
     private lateinit var mService: RetrofitServices
     private lateinit var graph: GraphView
     private lateinit var prefs: SharedPreferences
@@ -39,8 +37,6 @@ class GraphFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        notificationsViewModel =
-                ViewModelProvider(this).get(GraphViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_graph, container, false)
         graph = root.findViewById(R.id.graph)
         mService = Common.retrofitService
@@ -53,7 +49,7 @@ class GraphFragment : Fragment() {
         else
             Toast.makeText(
                 activity,
-                "Датчик для отображения не выбран",
+                getString(R.string.no_sensor_for_graph),
                 Toast.LENGTH_SHORT
             ).show()
         return root

@@ -17,7 +17,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -35,7 +34,6 @@ import retrofit2.Response
 
 class SensorsFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: SensorsViewModel
     private lateinit var mService: RetrofitServices
     private lateinit var layoutManager: LinearLayoutManager
     lateinit var adapter: NearbySensorsAdapter
@@ -55,8 +53,6 @@ class SensorsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-                ViewModelProvider(this).get(SensorsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_sensors, container, false)
         recycler = root.findViewById(R.id.recycler_sensors_list)
         prefs = requireActivity().getSharedPreferences(
