@@ -1,11 +1,8 @@
-package com.nullteam.sense.ui.dashboard
+package com.nullteam.sense.ui.sensors
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.LiveDataScope
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel : ViewModel() {
+class SensorsViewModel : ViewModel() {
 //    private val _list = MutableLiveData<List<String>>().apply {
 //        value = List<String>(12, init = {"Item"})
 //    }

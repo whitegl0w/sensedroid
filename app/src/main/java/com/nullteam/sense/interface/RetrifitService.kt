@@ -1,5 +1,6 @@
 package com.nullteam.sense.`interface`
 
+import com.nullteam.sense.models.Appinit
 import com.nullteam.sense.models.NearbySensors
 import com.nullteam.sense.models.SensorsHistory
 import retrofit2.Call
@@ -11,7 +12,7 @@ interface RetrofitServices {
     fun getNearbySensorsList(
             @Query("lat") lat: String,
             @Query("lon") lon: String,
-            @Query("radius") radius: String,
+            @Query("radius") radius: Int,
             @Query("uuid") uuid: String,
             @Query("api_key") api_key: String,
             @Query("lang") lang: String,
@@ -28,4 +29,15 @@ interface RetrofitServices {
         @Query("api_key") api_key: String,
         @Query("lang") lang: String,
     ): Call<SensorsHistory>
+
+    @Headers("User-Agent: SenseDroid", "Content-Type: application/json")
+    @GET("appInit")
+    fun appApiInit(
+        @Query("version") version: String,
+        @Query("platform") platform: String,
+        @Query("uuid") uuid: String,
+        @Query("api_key") api_key: String,
+        @Query("lang") lang: String,
+        @Query("utc") utc: Int,
+    ): Call<Appinit>
 }

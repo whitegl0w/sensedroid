@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Sense</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_settings">Настройки</string>
+    <string name="title_sensors">Датчики</string>
+    <string name="title_graph">Показания</string>
+    <string name="api_key">QzS9pErfYZqQe</string>
+    <string name="Location_Perm_Explain">Sense необходимо разрешение на доступ к местоположению, чтобы получить список ближайших датчиков. Без данного разрешения работа приложения невозможна</string>
+    <string name="settings_search_radius">Радиус поиска датчиков (км.)</string>
+    <string name="settings_sensors_type">Типы датчиков для поиска</string>
 </resources>
